@@ -491,9 +491,49 @@
     .logo { font-size: 30px; }
     #viz { height: 90px; flex: none; width: 100%; }
   }
+
+  /* Promo links (Patreon / Merch) — floats above scanlines + modals */
+  #promo-bar {
+    position: fixed;
+    top: max(8px, env(safe-area-inset-top, 0px));
+    right: max(8px, env(safe-area-inset-right, 0px));
+    z-index: 99999;
+    display: flex;
+    gap: 6px;
+    pointer-events: auto;
+  }
+  #promo-bar a {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.72);
+    color: #00ff66;
+    text-decoration: none;
+    font: 600 12px/1 var(--mono);
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(0, 255, 102, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    transition: background 0.15s, box-shadow 0.15s;
+  }
+  #promo-bar a:hover {
+    background: rgba(0, 20, 8, 0.9);
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.35);
+    color: #00ff66;
+  }
+  @media (max-width: 560px) {
+    #promo-bar { gap: 4px; }
+    #promo-bar a { padding: 5px 9px; font-size: 10px; }
+  }
 </style>
 </head>
 <body>
+<nav id="promo-bar" aria-label="Links">
+  <a href="https://www.patreon.com/JavyCodes" target="_blank" rel="noopener noreferrer">⭐ PATREON</a>
+  <a href="https://javy-codes-shop.fourthwall.com" target="_blank" rel="noopener noreferrer">🥷 MERCH</a>
+</nav>
 <canvas id="rain"></canvas>
 
 <div class="app">
